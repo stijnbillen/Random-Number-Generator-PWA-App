@@ -2,7 +2,7 @@
   "name": "Random Getal",
   "short_name": "Random",
   "description": "Genereer een random getal tussen 1 en 10",
-  "start_url": "/",
+  "start_url": "/Random_Number_Generator_PWA_App/",
   "display": "standalone",
   "background_color": "#1a1a2e",
   "theme_color": "#1a1a2e",
