@@ -1,0 +1,21 @@
+{
+  "name": "Random Getal",
+  "short_name": "Random",
+  "description": "Genereer een random getal tussen 1 en 10",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192x192/7f77dd/ffffff?text=R",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://via.placeholder.com/512x512/7f77dd/ffffff?text=R",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

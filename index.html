@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Getal</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100dvh;
+      background: #1a1a2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, sans-serif;
+      color: #fff;
+      gap: 2.5rem;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #8888aa;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    #getal {
+      font-size: 7rem;
+      font-weight: 500;
+      min-height: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.1s;
+    }
+    #getal.pulse {
+      transform: scale(1.15);
+    }
+    button {
+      background: #7f77dd;
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      max-width: 260px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    button:active { transform: scale(0.97); }
+    button:disabled { opacity: 0.5; cursor: default; }
+    p { font-size: 0.8rem; color: #555577; }
+  </style>
+</head>
+<body>
+  <h1>Random getal</h1>
+  <div id="getal">?</div>
+  <button id="btn" onclick="genereer()">Genereer getal</button>
+  <p>tussen 1 en 10</p>
+
+  <script>
+    function genereer() {
+      const el = document.getElementById('getal');
+      const btn = document.getElementById('btn');
+      btn.disabled = true;
+      let i = 0;
+      const iv = setInterval(() => {
+        el.textContent = Math.ceil(Math.random() * 10);
+        el.classList.toggle('pulse');
+        i++;
+        if (i > 12) {
+          clearInterval(iv);
+          el.classList.remove('pulse');
+          btn.disabled = false;
+        }
+      }, 60);
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
